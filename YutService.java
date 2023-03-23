@@ -47,7 +47,7 @@ public class YutService {
 			} else {
 				retryword = "";
 			}
-			System.out.println("\t"+prDTO.get(r).getTotalyutcnt() + "\t" + prDTO.get(r).getPlayer() + "\t" + playercnt + "\t"
+			System.out.println("\t "+prDTO.get(r).getTotalyutcnt() + "\t" + prDTO.get(r).getPlayer() + "\t" + playercnt + "\t"
 					+ "\t" + nowY + "\t" + prDTO.get(r).getSumPositionCnt() + "\t" + retryword);
 		}
 	}
@@ -148,12 +148,18 @@ public class YutService {
 		String boardAB = "\u001B[32m (A\u001B[0m \u001B[33mB) \u001B[0m";
 		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
 		System.out.println("\n");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		System.out.println("                             * Death Road *");
 		prepository.deathroad1();// 데스로드 호출
 		System.out.print(" ");
 		int catchM = 0; // 잡히는 상황 시 메시지 출력
 		int goalNum = 20;
 //		
+		
 		for (int i = 0; i <= goalNum; i = i + 1) {
 			if (poCntA == -1 && i == 0) {// 처음에 빽도가 나온 상황
 				poCntA = 19;

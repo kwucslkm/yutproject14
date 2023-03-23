@@ -1,4 +1,5 @@
 package YprojectNew;
+import java.awt.Toolkit;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -26,31 +27,30 @@ public class ProjectYRepository {
 		return randomSpace;
 	}
 	public void actiontimer() {
-		System.out.print(" . ");
-
-		try {
-
-			Thread.sleep(1000); //1초 대기
-
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-
-		}
-
-		System.out.print(" . ");
+//		Toolkit toolkit = Toolkit.getDefaultToolkit();
+//			toolkit.beep();
+			try {
+				Thread.sleep(70);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
 	}
 	public void Yut1() {
+//		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |___X___X___X___|" + 1);
 	}
 	public void Yut2() {
+//		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |_______________|" + 0);
 	}
 	public void Yut3() {
+//		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |_B_____________|" + 2);
