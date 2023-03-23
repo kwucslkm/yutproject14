@@ -60,8 +60,7 @@ public class ProjectYDTO {
 	public String toString() {
 		//
 		String s2 = "  ";
-		String str = totalyutcnt + "\t" + player + "\t" + nowyutCnt + "\t" + sumPositionCnt + "\t"
-				+ retryChkno;
+		String str = totalyutcnt + "\t" + player + "\t" + nowyutCnt + "\t" + sumPositionCnt + "\t" + retryChkno;
 		return str;
 	}
 }

@@ -29,13 +29,12 @@ public class ProjectYRepository {
 	public void actiontimer() {
 //		Toolkit toolkit = Toolkit.getDefaultToolkit();
 //			toolkit.beep();
-			try {
-				Thread.sleep(70);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+		try {
+			Thread.sleep(70);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void Yut1() {
 //		actiontimer();
