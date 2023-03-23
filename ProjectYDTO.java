@@ -1,4 +1,4 @@
-package YprojectNew;
+package yutproject14;
 //
 public class ProjectYDTO {
 	//
@@ -11,8 +11,7 @@ public class ProjectYDTO {
 //	private int playerBcnt;
 	//
 	public ProjectYDTO() {
-//		totalyutcnt++;
-//		this.playercnt++;
+
 	}
 	public Integer getTotalyutcnt() {
 		return totalyutcnt;
@@ -44,23 +43,12 @@ public class ProjectYDTO {
 	public void setNowyutCnt(int nowyutCnt) {
 		this.nowyutCnt = nowyutCnt;
 	}
-//	public int getPlayerAcnt() {
-//		return playerAcnt;
+
+//	@Override
+//	public String toString() {
+//		//
+//		String s2 = "  ";
+//		String str = totalyutcnt + "\t" + player + "\t" + nowyutCnt + "\t" + sumPositionCnt + "\t" + retryChkno;
+//		return str;
 //	}
-//	public void setPlayerAcnt(int playerAcnt) {
-//		this.playerAcnt = playerAcnt;
-//	}
-//	public int getPlayerBcnt() {
-//		return playerBcnt;
-//	}
-//	public void setPlayerBcnt(int playerBcnt) {
-//		this.playerBcnt = playerBcnt;
-//	}
-	@Override
-	public String toString() {
-		//
-		String s2 = "  ";
-		String str = totalyutcnt + "\t" + player + "\t" + nowyutCnt + "\t" + sumPositionCnt + "\t" + retryChkno;
-		return str;
-	}
 }

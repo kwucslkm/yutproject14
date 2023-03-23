@@ -1,4 +1,4 @@
-package YprojectNew;
+package yutproject14;
 import java.util.Scanner;
 //
 public class Util {

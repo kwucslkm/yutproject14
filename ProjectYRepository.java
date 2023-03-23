@@ -1,4 +1,4 @@
-package YprojectNew;
+package yutproject14;
 import java.awt.Toolkit;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,7 +72,7 @@ public class ProjectYRepository {
 		return nowMal;
 	}
 	public void deathroad1() {
-		System.out.println("\n\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
+		System.out.println("\n\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
 				+ "\u001B[0m");
 	}
 }
