@@ -1,11 +1,11 @@
 package YprojectNew;
 //import java.util.Random;
-import java.util.Scanner;
+//import java.util.Scanner;
 //
 public class ProjectYMain {
 	public static void main(String[] args) {
 		YutService service = new YutService();
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		Util util = new Util();
 		//
 		boolean play = false;// 참가자 순서를 바꿔 줄 변수
@@ -77,13 +77,13 @@ public class ProjectYMain {
 			} else {
 				service.reinput();
 				if (play == false) {
-					System.out.println("참가자 (A) '1' 다시입력 > ");
+//					System.out.println("참가자 (A) '1' 다시입력 > ");
 				} else {
-					System.out.println("참가자 (B) '2' 다시입력 > ");
+//					System.out.println("참가자 (B) '2' 다시입력 > ");
 				}
 			}
 		}
 		System.out.println("\n  게임 테스트 종료");
-		sc.close();
+//		sc.close();
 	}
 }

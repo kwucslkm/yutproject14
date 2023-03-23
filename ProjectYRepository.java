@@ -41,19 +41,19 @@ public class ProjectYRepository {
 //		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
-		System.out.println(randomyut + "                |___X___X___X___|" + 1);
+		System.out.println(randomyut + "                |___X___X___X___|");
 	}
 	public void Yut2() {
 //		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
-		System.out.println(randomyut + "                |_______________|" + 0);
+		System.out.println(randomyut + "                |_______________|");
 	}
 	public void Yut3() {
 //		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
-		System.out.println(randomyut + "                |_B_____________|" + 2);
+		System.out.println(randomyut + "                |_B_____________|");
 	}
 	public String nowyutresult(int nowPositionCnt) {
 		String nowMal;

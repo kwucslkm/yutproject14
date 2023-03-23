@@ -18,7 +18,7 @@ public class YutService {
 		String nowY = null;
 		int tryA = 1;
 		int tryB = 1;
-		System.out.println("\t전체\t플레이어\t참여자트라이\t윷\t말위치\t한번더");
+		System.out.println("\n\t전체\t플레이어\t참여횟수\t윷\t말위치\t한번더");
 		System.out.println("----------------------------------------------------------------------");
 		for (Integer r : prDTO.keySet()) {
 			int playercnt = 0;
@@ -47,8 +47,8 @@ public class YutService {
 			} else {
 				retryword = "";
 			}
-			System.out.println("\t "+prDTO.get(r).getTotalyutcnt() + "\t" + prDTO.get(r).getPlayer() + "\t" + playercnt + "\t"
-					+ "\t" + nowY + "\t" + prDTO.get(r).getSumPositionCnt() + "\t" + retryword);
+			System.out.println("\t  " + prDTO.get(r).getTotalyutcnt() + "\t  " + prDTO.get(r).getPlayer() + "\t  "
+					+ playercnt + "\t  " + nowY + "\t  " + prDTO.get(r).getSumPositionCnt() + "\t  " + retryword);
 		}
 	}
 	public void clearScreen(int line) {
@@ -148,18 +148,17 @@ public class YutService {
 		String boardAB = "\u001B[32m (A\u001B[0m \u001B[33mB) \u001B[0m";
 		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
 		System.out.println("\n");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		System.out.println("                             * Death Road *");
 		prepository.deathroad1();// 데스로드 호출
 		System.out.print(" ");
 		int catchM = 0; // 잡히는 상황 시 메시지 출력
 		int goalNum = 20;
 //		
-		
 		for (int i = 0; i <= goalNum; i = i + 1) {
 			if (poCntA == -1 && i == 0) {// 처음에 빽도가 나온 상황
 				poCntA = 19;
@@ -205,11 +204,15 @@ public class YutService {
 	}
 	public void reinput() {// 잘못 눌렀을경우 다시 뿌려줌
 		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
-		ProjectYDTO prDTOl = null;
-		for (int r : prDTO.keySet()) {
-			prDTOl = prDTO.get(r);
+		if (prDTO.size() == 0) {
+			System.out.println("처음 플레이입니다. 정확히 눌러 주세요");
+		} else {
+			ProjectYDTO prDTOl = null;
+			for (int r : prDTO.keySet()) {
+				prDTOl = prDTO.get(r);
+			}
+			YboardRows(prDTOl);
 		}
-		YboardRows(prDTOl);
 	}
 	public void StartYut1() {
 		for (int i = 0; i < 4; i++) {

@@ -1,9 +1,7 @@
 package YprojectNew;
-
 import java.util.Scanner;
-
+//
 public class Util {
-
 	public int numberCheck() {
 		Scanner sc = new Scanner(System.in);
 		if (sc.hasNextInt()) {
@@ -13,5 +11,4 @@ public class Util {
 			return -1;
 		}
 	}
-
 }
