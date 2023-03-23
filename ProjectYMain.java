@@ -14,7 +14,7 @@ public class ProjectYMain {
 		//
 		service.clearScreen(5);
 		System.out.println("\u001B[36m ■■■■■■■■■■■■■■■■■■■■■■■■■■ YUT RACE GAME !! ■■■■■■■■■■■■■■■■■■■■■■■■■\u001B[0m");
-		service.clearScreen(5);
+		service.clearScreen(7);
 		service.StartYut1();
 		service.clearScreen(5);
 		System.out.println("  '4개의 엿가락'을 던져 20칸 '죽음의 도로'를 달려 GOAL에 먼저 도달하면 '승리' 합니다. ");

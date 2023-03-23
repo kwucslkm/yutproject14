@@ -12,7 +12,6 @@ public class YutService {
 	int playerBcnt;
 	int poCntA = 0; // A누적 점수
 	int poCntB = 0; // B누적 점수
-	
 	public void clearScreen(int line) {
 		for (int i = 0; i < line; i++)
 			System.out.println("");
@@ -48,7 +47,7 @@ public class YutService {
 		int retryChk = 0; // 다시 윷 던지기 변수
 		String nowMal = "";//
 		System.out.println("\u001B[36m ■■■■■■■■■■■■■■■■■■■■■■■■■■■■ YUT GAME !! ■■■■■■■■■■■■■■■■■■■■■■■■■■■■\u001B[0m");
-		clearScreen(3);
+		clearScreen(5);
 		for (int i = 0; i < 4; i++) {
 			if (rd.nextInt(2) == 1) {
 				nowyutCode = nowyutCode + "1";// 윷가락 코드를 따기위한
@@ -64,7 +63,7 @@ public class YutService {
 				}
 			}
 		}
-		System.out.println();
+		clearScreen(4);
 		if (nowPositionCnt == 0) {// '모'가 나올경우 5점으로 바꿔줌
 			nowPositionCnt = 5; // '모'가 나올경우 5점으로 바꿔줌
 		} else if (nowyutCode.equals("2111")) {// 빽도가 나올경우
@@ -87,8 +86,8 @@ public class YutService {
 		sumPositionCnt = PositionSumCnt(nowPositionCnt, player);
 		proYDTO.setSumPositionCnt(sumPositionCnt);// DTO 에 누적카운트값(말의 위치값) 저장
 		proYDTO.setTotalyutcnt(totalcnt); // 전체 윷 던진 트라이 수
-		proYDTO.setPlayerAcnt(retryChk);
-		proYDTO.setPlayerBcnt(retryChk);
+//		proYDTO.setPlayerAcnt(retryChk);
+//		proYDTO.setPlayerBcnt(retryChk);
 		prepository.save(proYDTO);// 맵리스트에 윷 한 번 던졌을때의 값들을 저장
 		clearSpace(13);// "\n " + nowyutCode + " " +
 		System.out.println("참가자 " + player + "님" + nowMal);// 현재윷 던진 결과값을 출력
@@ -252,36 +251,35 @@ public class YutService {
 		}
 		//
 		System.out.println(" ----------------------------------------------------------------------");
-		for (Integer r : prDTO.keySet()) {
-			int playercnt = 0;
-			if (prDTO.get(r).getPlayer().equals("A")) {
-				playercnt = tryA++;
-			} else {
-				playercnt = tryB++;
-			}
-			int nowyut = prDTO.get(r).getNowyutCnt();
-			if (nowyut == 1) {
-				nowY = "도";
-			} else if (nowyut == 2) {
-				nowY = "개";
-			} else if (nowyut == 3) {
-				nowY = "걸";
-			} else if (nowyut == 4) {
-				nowY = "윷";
-			} else if (nowyut == 5) {
-				nowY = "모";
-			} else {
-				nowY = "빽도";
-			}
-			int retry = prDTO.get(r).getRetryChkno();
-			if (retry == 1) {
-				retryword = "한번더함";
-			} else {
-				retryword = "";
-			}
-			System.out.println("\t  " + prDTO.get(r).getTotalyutcnt() + "\t  " + prDTO.get(r).getPlayer() + "\t  "
-					+ playercnt + "\t  " + nowY + "\t  " + prDTO.get(r).getSumPositionCnt() + "\t  " + retryword);
-		}
+//		for (Integer r : prDTO.keySet()) {
+//			int playercnt = 0;
+//			if (prDTO.get(r).getPlayer().equals("A")) {
+//				playercnt = tryA++;
+//			} else {
+//				playercnt = tryB++;
+//			}
+//			int nowyut = prDTO.get(r).getNowyutCnt();
+//			if (nowyut == 1) {
+//				nowY = "도";
+//			} else if (nowyut == 2) {
+//				nowY = "개";
+//			} else if (nowyut == 3) {
+//				nowY = "걸";
+//			} else if (nowyut == 4) {
+//				nowY = "윷";
+//			} else if (nowyut == 5) {
+//				nowY = "모";
+//			} else {
+//				nowY = "빽도";
+//			}
+//			int retry = prDTO.get(r).getRetryChkno();
+//			if (retry == 1) {
+//				retryword = "한번더함";
+//			} else {
+//				retryword = "";
+//			}
+//			System.out.println("\t  " + prDTO.get(r).getTotalyutcnt() + "\t  " + prDTO.get(r).getPlayer() + "\t  "
+//					+ playercnt + "\t  " + nowY + "\t  " + prDTO.get(r).getSumPositionCnt() + "\t  " + retryword);
+//		}
 	}
-	
 }
