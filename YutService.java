@@ -14,7 +14,7 @@ public class YutService {
 	int poCntB = 0; // B누적 점수
 	public void clearScreen(int line) {
 		for (int i = 0; i < line; i++)
-			System.out.println("");
+			System.out.println();
 	}
 	public void clearSpace(int space) {
 		for (int i = 0; i < space; i++)
@@ -22,7 +22,6 @@ public class YutService {
 	}
 	public void firstShowroad() {
 		clearScreen(80);
-//		YboardRows("시작");
 	}
 	public int PositionSumCnt(int nowPositionCnt, String player) {// 누적 점수 저장 메소드
 		if (player.equals("A")) {
@@ -86,8 +85,6 @@ public class YutService {
 		sumPositionCnt = PositionSumCnt(nowPositionCnt, player);
 		proYDTO.setSumPositionCnt(sumPositionCnt);// DTO 에 누적카운트값(말의 위치값) 저장
 		proYDTO.setTotalyutcnt(totalcnt); // 전체 윷 던진 트라이 수
-//		proYDTO.setPlayerAcnt(retryChk);
-//		proYDTO.setPlayerBcnt(retryChk);
 		prepository.save(proYDTO);// 맵리스트에 윷 한 번 던졌을때의 값들을 저장
 		clearSpace(13);// "\n " + nowyutCode + " " +
 		System.out.println("참가자 " + player + "님" + nowMal);// 현재윷 던진 결과값을 출력
@@ -99,7 +96,6 @@ public class YutService {
 		System.out.println("   현재 A의 위치는 " + poCntA + "입니다.");
 		clearSpace(23);
 		System.out.print("   현재 B의 위치는 " + poCntB + "입니다.\n");
-//		System.out.println(proYDTO);
 		return proYDTO;
 	}
 	public ProjectYDTO YboardRows(ProjectYDTO proYDTO) {
@@ -107,13 +103,9 @@ public class YutService {
 		String boardA = "\u001B[32m(A)\u001B[0m";
 		String boardB = "\u001B[33m(B)\u001B[0m";
 		String boardAB = "\u001B[32m(A\u001B[0m\u001B[33mB)\u001B[0m";
+		String boardBA = "\u001B[33m(B\u001B[0m\u001B[32mA)\u001B[0m";
 		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
 		System.out.println("\n");
-//		try {
-//			Thread.sleep(1000);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
 		System.out.println("                             * Death Road *");
 		prepository.deathroad1();// 데스로드 호출
 		System.out.print(" ");
@@ -129,11 +121,12 @@ public class YutService {
 			if (i == poCntA && i == poCntB) { // 따라잡은 상황
 				if (proYDTO.getPlayer().equals("A")) {
 					poCntB = 0;
+					System.out.print(boardAB);
 				} else {
 					poCntA = 0;
+					System.out.print(boardBA);
 				}
 				catchM = 1;
-				System.out.print(boardAB);
 			} else if (poCntB < poCntA && i == poCntB && i != goalNum) {
 				System.out.print(boardB);
 			} else if (poCntB < poCntA && i == poCntA && i != goalNum) {
@@ -181,9 +174,9 @@ public class YutService {
 	}
 	public void StartYut1() {
 		for (int i = 0; i < 4; i++) {
-			clearSpace(27);
+			clearSpace(26);
 			System.out.println(" _______________");
-			clearSpace(27);
+			clearSpace(26);
 			System.out.println("|___X___X___X___|");
 		}
 	}
@@ -192,7 +185,6 @@ public class YutService {
 		String retryword = null;
 		String nowY = null;
 		int tryC = 1;
-//		int tryB = 1;
 		for (Integer r : prDTO.keySet()) {
 			int playercnt = 0;
 			if (prDTO.get(r).getPlayer().equals(play)) {
@@ -228,11 +220,6 @@ public class YutService {
 		System.out.println("--------------------------------------------------");
 	}
 	public void ShowResult(String play) { // 승부가 끝나고 history를 출력해주는 메소드
-//		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
-//		String retryword = null;
-//		String nowY = null;
-//		int tryA = 1;
-//		int tryB = 1;
 		System.out.println();
 		clearSpace(11);
 		System.out.println("전체\t플레이어\t참여차수\t  윷\t 말위치\t  한번더");
@@ -247,94 +234,6 @@ public class YutService {
 			resultLine();
 			playTostring("A");
 		}
-//		for (Integer r : prDTO.keySet()) {
-//			int playercnt = 0;
-//			if (prDTO.get(r).getPlayer().equals("A")) {
-//				playercnt = tryA++;
-//				int nowyut = prDTO.get(r).getNowyutCnt();
-//				if (nowyut == 1) {
-//					nowY = "도";
-//				} else if (nowyut == 2) {
-//					nowY = "개";
-//				} else if (nowyut == 3) {
-//					nowY = "걸";
-//				} else if (nowyut == 4) {
-//					nowY = "윷";
-//				} else if (nowyut == 5) {
-//					nowY = "모";
-//				} else {
-//					nowY = "빽도";
-//				}
-//				int retry = prDTO.get(r).getRetryChkno();
-//				if (retry == 1) {
-//					retryword = "한번더함";
-//				} else {
-//					retryword = "";
-//				}
-//				System.out.println("\t  " + prDTO.get(r).getTotalyutcnt() + "\t  " + prDTO.get(r).getPlayer() + "\t  "
-//						+ playercnt + "\t  " + nowY + "\t  " + prDTO.get(r).getSumPositionCnt() + "\t  " + retryword);
-//			}
-//		}
-//		System.out.println(" ----------------------------------------------------------------------");
-//		for (Integer r : prDTO.keySet()) {
-//			int playercnt = 0;
-//			if (prDTO.get(r).getPlayer().equals("B")) {
-//				playercnt = tryB++;
-//				int nowyut = prDTO.get(r).getNowyutCnt();
-//				if (nowyut == 1) {
-//					nowY = "도";
-//				} else if (nowyut == 2) {
-//					nowY = "개";
-//				} else if (nowyut == 3) {
-//					nowY = "걸";
-//				} else if (nowyut == 4) {
-//					nowY = "윷";
-//				} else if (nowyut == 5) {
-//					nowY = "모";
-//				} else {
-//					nowY = "빽도";
-//				}
-//				int retry = prDTO.get(r).getRetryChkno();
-//				if (retry == 1) {
-//					retryword = "한번더함";
-//				} else {
-//					retryword = "";
-//				}
-//				System.out.println("\t  " + prDTO.get(r).getTotalyutcnt() + "\t  " + prDTO.get(r).getPlayer() + "\t  "
-//						+ playercnt + "\t  " + nowY + "\t  " + prDTO.get(r).getSumPositionCnt() + "\t  " + retryword);
-//			}
-//		}
-		//
-//		System.out.println(" ----------------------------------------------------------------------");
-//		for (Integer r : prDTO.keySet()) {
-//			int playercnt = 0;
-//			if (prDTO.get(r).getPlayer().equals("A")) {
-//				playercnt = tryA++;
-//			} else {
-//				playercnt = tryB++;
-//			}
-//			int nowyut = prDTO.get(r).getNowyutCnt();
-//			if (nowyut == 1) {
-//				nowY = "도";
-//			} else if (nowyut == 2) {
-//				nowY = "개";
-//			} else if (nowyut == 3) {
-//				nowY = "걸";
-//			} else if (nowyut == 4) {
-//				nowY = "윷";
-//			} else if (nowyut == 5) {
-//				nowY = "모";
-//			} else {
-//				nowY = "빽도";
-//			}
-//			int retry = prDTO.get(r).getRetryChkno();
-//			if (retry == 1) {
-//				retryword = "한번더함";
-//			} else {
-//				retryword = "";
-//			}
-//			System.out.println("\t  " + prDTO.get(r).getTotalyutcnt() + "\t  " + prDTO.get(r).getPlayer() + "\t  "
-//					+ playercnt + "\t  " + nowY + "\t  " + prDTO.get(r).getSumPositionCnt() + "\t  " + retryword);
-//		}
+//		
 	}
 }

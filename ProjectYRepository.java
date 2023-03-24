@@ -18,6 +18,17 @@ public class ProjectYRepository {
 	}
 	public void YboardColum() {
 	}
+
+//	public void actiontimer() {
+////		Toolkit toolkit = Toolkit.getDefaultToolkit();
+////			toolkit.beep();
+//		try {
+//			Thread.sleep(70);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	public String randomspace() {// 윷가락의 위치를 변경하여 콘솔에 조금의 재미를 부여
 		int randoms = rd.nextInt(10);
 		String randomSpace = "";
@@ -26,30 +37,17 @@ public class ProjectYRepository {
 		}
 		return randomSpace;
 	}
-	public void actiontimer() {
-//		Toolkit toolkit = Toolkit.getDefaultToolkit();
-//			toolkit.beep();
-		try {
-			Thread.sleep(70);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	public void Yut1() {
-//		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |___X___X___X___|");
 	}
 	public void Yut2() {
-//		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |_______________|");
 	}
 	public void Yut3() {
-//		actiontimer();
 		String randomyut = randomspace();
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |_B_____________|");
