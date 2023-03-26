@@ -7,12 +7,7 @@ public class ProjectYDTO {
 	private int sumPositionCnt;
 	private String player;
 	private Integer totalyutcnt;
-//	private int playerAcnt;
-//	private int playerBcnt;
 	//
-	public ProjectYDTO() {
-
-	}
 	public Integer getTotalyutcnt() {
 		return totalyutcnt;
 	}
@@ -43,7 +38,6 @@ public class ProjectYDTO {
 	public void setNowyutCnt(int nowyutCnt) {
 		this.nowyutCnt = nowyutCnt;
 	}
-
 //	@Override
 //	public String toString() {
 //		//

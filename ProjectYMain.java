@@ -8,8 +8,6 @@ public class ProjectYMain {
 		Scanner sc = new Scanner(System.in);
 		Util util = new Util();
 		//
-		
-		
 		boolean play = false;// 참가자 순서를 바꿔 줄 변수
 		int gamecntA = 0;// A말의 점수를 저장 할 변수
 		int gamecntB = 0;// B말의 점수를 저장 할 변수

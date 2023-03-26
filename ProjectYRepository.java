@@ -1,5 +1,5 @@
 package yutproject14;
-import java.awt.Toolkit;
+//import java.awt.Toolkit;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -16,9 +16,8 @@ public class ProjectYRepository {
 	public Map<Integer, ProjectYDTO> remap() {
 		return Ymap;
 	}
-	public void YboardColum() {
-	}
-
+//	public void YboardColum() {
+//	}
 //	public void actiontimer() {
 ////		Toolkit toolkit = Toolkit.getDefaultToolkit();
 ////			toolkit.beep();
@@ -70,7 +69,7 @@ public class ProjectYRepository {
 		return nowMal;
 	}
 	public void deathroad1() {
-		System.out.println("\n\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■"
-				+ "\u001B[0m");
+		System.out.println(
+				"\n\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" + "\u001B[0m");
 	}
 }

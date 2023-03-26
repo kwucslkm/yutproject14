@@ -20,9 +20,9 @@ public class YutService {
 		for (int i = 0; i < space; i++)
 			System.out.print(" ");
 	}
-	public void firstShowroad() {
-		clearScreen(80);
-	}
+//	public void firstShowroad() {
+//		clearScreen(80);
+//	}
 	public int PositionSumCnt(int nowPositionCnt, String player) {// 누적 점수 저장 메소드
 		if (player.equals("A")) {
 			poCntA += nowPositionCnt;
@@ -215,10 +215,6 @@ public class YutService {
 			}
 		}
 	}
-	public void resultLine() {
-		clearSpace(10);
-		System.out.println("--------------------------------------------------");
-	}
 	public void ShowResult(String play) { // 승부가 끝나고 history를 출력해주는 메소드
 		System.out.println();
 		clearSpace(11);
@@ -235,5 +231,9 @@ public class YutService {
 			playTostring("A");
 		}
 //		
+	}
+	public void resultLine() {
+		clearSpace(10);
+		System.out.println("--------------------------------------------------");
 	}
 }
