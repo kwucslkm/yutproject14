@@ -8,25 +8,29 @@ public class ProjectYMain {
 		Scanner sc = new Scanner(System.in);
 		Util util = new Util();
 		//
-		boolean play = false;// 참가자 순서를 바꿔 줄 변수
+		int gameGoal = 20;
+		boolean play = false;// 참가자 순서를 바꿔 줄 변수(change turn)
 		int gamecntA = 0;// A말의 점수를 저장 할 변수
 		int gamecntB = 0;// B말의 점수를 저장 할 변수
 		//
 		service.clearScreen(5);
 		System.out.println("\u001B[36m ■■■■■■■■■■■■■■■■■■■■■■■■■ YUT RACE GAME !! ■■■■■■■■■■■■■■■■■■■■■■■■\u001B[0m");
 		service.clearScreen(6);
-		service.StartYut1();
+		service.StartYut1(); // 시작 윷가락모양 표현 메소드 호출
 		service.clearScreen(5);
 		System.out.println("  '4개의 엿가락'을 던져 20칸 '죽음의 도로'를 달려 GOAL에 먼저 도달하면 '승리' 합니다.");
 		System.out.println("     도:1칸, 개:2칸, 걸:3칸, 윷:4칸(한번더), 모:5칸(한번더),앞사람잡으면(한번더)");
 		System.out.println("            게임은 총 3판을 진행해서 두 번을 먼저 이기면 승리입니다.  ");
 		System.out.println("         먼저 시작하실 분을 정하시고 참가자 A가 되신분은 '1'을 눌러 시작하세요\n");
-		System.out.println(
-				"\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" + "\u001B[0m");
+		service.placeNum(gameGoal);
+		System.out.println();
+		System.out.println("\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" + "\u001B[0m");
 		for (int i = 0; i < 20; i = i + 1) {
 			if (i == 0) {
-				System.out.print("\u001B[32m (A\u001B[0m\u001B[33mB) \u001B[0m");
-			} else {
+				System.out.print("\u001B[32m (A\u001B[0m\u001B[33mB)\u001B[0m");
+			} else if(i==1) {
+				System.out.print("o ");
+			}else {
 				System.out.print(" o ");
 			}
 		}

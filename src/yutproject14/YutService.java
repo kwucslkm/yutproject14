@@ -5,24 +5,21 @@ import java.util.Scanner;
 //
 public class YutService {
 	Scanner sc = new Scanner(System.in);
-	ProjectYRepository prepository = new ProjectYRepository();
+	ProjectYRepository pRepository = new ProjectYRepository();
 	Random rd = new Random();// 랜덤 객체 생성
+	static int goalNum = 0;
 	int totalcnt = 0;
 	int playerAcnt;
 	int playerBcnt;
 	int poCntA = 0; // A누적 점수
 	int poCntB = 0; // B누적 점수
 	public void clearScreen(int line) {
-		for (int i = 0; i < line; i++)
-			System.out.println();
+		pRepository.clearScreen(line);
 	}
 	public void clearSpace(int space) {
-		for (int i = 0; i < space; i++)
-			System.out.print(" ");
+		pRepository.clearSpace(space);
 	}
-//	public void firstShowroad() {
-//		clearScreen(80);
-//	}
+
 	public int PositionSumCnt(int nowPositionCnt, String player) {// 누적 점수 저장 메소드
 		if (player.equals("A")) {
 			poCntA += nowPositionCnt;
@@ -50,15 +47,15 @@ public class YutService {
 		for (int i = 0; i < 4; i++) {
 			if (rd.nextInt(2) == 1) {
 				nowyutCode = nowyutCode + "1";// 윷가락 코드를 따기위한
-				prepository.Yut1();// 랜덤윷 호출
+				pRepository.Yut1();// 랜덤윷 호출
 			} else {
 				nowPositionCnt++;// 윗면이 안나오면 합산- 도 개 걸 윷 확인(1.도 2.개 3.걸 4.윷 5.모)
 				if (i == 0) {
 					nowyutCode = nowyutCode + "2";
-					prepository.Yut3();
+					pRepository.Yut3();
 				} else {
 					nowyutCode = nowyutCode + "0";
-					prepository.Yut2();
+					pRepository.Yut2();
 				}
 			}
 		}
@@ -71,7 +68,7 @@ public class YutService {
 		if (nowPositionCnt == 4 || nowPositionCnt == 5) {// 윷이나 모가 나오면 재실행 변수를 1로 바꿈
 			retryChk = 1;
 		}
-		nowMal = prepository.nowyutresult(nowPositionCnt);// 화면에 현재 윷 던지 결과를 출력
+		nowMal = pRepository.nowyutresult(nowPositionCnt);// 화면에 현재 윷 던지 결과를 출력
 		System.out.println();// 여기서 플레이어와 현재 카운트와 다시실행 값을 넘겨줘야
 		//
 		proYDTO.setPlayer(player); // DTO 에 플레이어 저장
@@ -85,7 +82,7 @@ public class YutService {
 		sumPositionCnt = PositionSumCnt(nowPositionCnt, player);
 		proYDTO.setSumPositionCnt(sumPositionCnt);// DTO 에 누적카운트값(말의 위치값) 저장
 		proYDTO.setTotalyutcnt(totalcnt); // 전체 윷 던진 트라이 수
-		prepository.save(proYDTO);// 맵리스트에 윷 한 번 던졌을때의 값들을 저장
+		pRepository.save(proYDTO);// 맵리스트에 윷 한 번 던졌을때의 값들을 저장
 		clearSpace(13);// "\n " + nowyutCode + " " +
 		System.out.println("참가자 " + player + "님" + nowMal);// 현재윷 던진 결과값을 출력
 		clearSpace(13);
@@ -99,18 +96,19 @@ public class YutService {
 		return proYDTO;
 	}
 	public ProjectYDTO YboardRows(ProjectYDTO proYDTO) {
+		goalNum = 20;
 		String boardO = " o ";
 		String boardA = "\u001B[32m(A)\u001B[0m";
 		String boardB = "\u001B[33m(B)\u001B[0m";
 		String boardAB = "\u001B[32m(A\u001B[0m\u001B[33mB)\u001B[0m";
 		String boardBA = "\u001B[33m(B\u001B[0m\u001B[32mA)\u001B[0m";
-		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
+		Map<Integer, ProjectYDTO> prDTO = pRepository.remap();
 		System.out.println("\n");
 		System.out.println("                             * Death Road *");
-		prepository.deathroad1();// 데스로드 호출
+		pRepository.placeNum(goalNum);
+		pRepository.deathroad1();// 데스로드 호출
 		System.out.print(" ");
 		int catchM = 0; // 잡히는 상황 시 메시지 출력
-		int goalNum = 20;
 //		
 		for (int i = 0; i <= goalNum; i = i + 1) {
 			if (poCntA == -1 && i == 0) {// 처음에 빽도가 나온 상황
@@ -147,7 +145,7 @@ public class YutService {
 				System.out.print(boardO);
 			}
 		}
-		prepository.deathroad1();// 데스로드 호출
+		pRepository.deathroad1();// 데스로드 호출
 		if (catchM == 1) {
 			clearSpace(20);
 			System.out.println("   앗 " + proYDTO.getPlayer() + " 님 잡았습니다. 한번더");
@@ -157,7 +155,7 @@ public class YutService {
 		return proYDTO;
 	}
 	public void reinput() {// 잘못 눌렀을경우 다시 뿌려줌
-		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
+		Map<Integer, ProjectYDTO> prDTO = pRepository.remap();
 		if (prDTO.size() == 0) {
 			System.out.println("처음 플레이입니다. 정확히 눌러 주세요");
 		} else {
@@ -173,15 +171,11 @@ public class YutService {
 		}
 	}
 	public void StartYut1() {
-		for (int i = 0; i < 4; i++) {
-			clearSpace(26);
-			System.out.println(" _______________");
-			clearSpace(26);
-			System.out.println("|___X___X___X___|");
-		}
+		
+		pRepository.StartYut1();
 	}
 	public void playTostring(String play) {
-		Map<Integer, ProjectYDTO> prDTO = prepository.remap();
+		Map<Integer, ProjectYDTO> prDTO = pRepository.remap();
 		String retryword = null;
 		String nowY = null;
 		int tryC = 1;
@@ -235,5 +229,9 @@ public class YutService {
 	public void resultLine() {
 		clearSpace(10);
 		System.out.println("--------------------------------------------------");
+	}
+	public void placeNum(int gameGoal) {
+		pRepository.placeNum(gameGoal);
+		
 	}
 }
