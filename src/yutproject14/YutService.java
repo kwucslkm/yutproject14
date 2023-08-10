@@ -13,6 +13,11 @@ public class YutService {
 	int playerBcnt;
 	int poCntA = 0; // A누적 점수
 	int poCntB = 0; // B누적 점수
+	public void printResultGame(String player) {
+		clearSpace(23);
+		System.out.println("축하합니다!! 참가자 "+player+" 승리!!");
+		ShowResult(player);
+	}
 	public void clearScreen(int line) {
 		pRepository.clearScreen(line);
 	}

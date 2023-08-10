@@ -38,18 +38,21 @@ public class ProjectYMain {
 		System.out.println(
 				"\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" + "\u001B[0m");
 		System.out.println(" ■■■■■■■■■■■■■■■■■■■■■■■ YUT GAME Start!!! ■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		
 		while (true) {// palyer A 와 player B 번갈아 가며 윷을 던집니다.
 			System.out.println();// player의 점수를 출력 합니다.
 			//
 			if (gamecntA >= 20) {
-				service.clearSpace(23);
-				System.out.println("축하합니다!! 참가자 A 승리!!");
-				service.ShowResult("A");
+				service.printResultGame("A");
+//				service.clearSpace(23);
+//				System.out.println("축하합니다!! 참가자 A 승리!!");
+//				service.ShowResult("A");
 				break;
 			} else if (gamecntB >= 20) {
-				service.clearSpace(23);
-				System.out.println("축하합니다!!. 참가자 B 승리!!");
-				service.ShowResult("B");
+				service.printResultGame("B");
+//				service.clearSpace(23);
+//				System.out.println("축하합니다!!. 참가자 B 승리!!");
+//				service.ShowResult("B");
 				break;
 			}
 			//
