@@ -9,10 +9,10 @@ public class YutService extends YutDeathRoad {
 
 	public int callResultPrint(int gamecntA, int gamecntB) {
 
-		if (gamecntA >= 20) {
+		if (gamecntA >= goalNum) {
 			printResultGame("A");
 			return 1;
-		} else if (gamecntB >= 20) {
+		} else if (gamecntB >= goalNum) {
 			printResultGame("B");
 			return 2;
 		}
@@ -31,10 +31,10 @@ public class YutService extends YutDeathRoad {
 
 	public int startThrow(boolean play) {
 		if (play) { // 게임을 시작 합니다.
-			clearSpace(22);
+			clearSpace(goalNum + 2);
 			System.out.print("참가자 B press '2' enter> ");
 		} else {
-			clearSpace(22);
+			clearSpace(goalNum + 2);
 			System.out.print("참가자 A press '1' enter> ");
 		}
 		return util.numberCheck();
@@ -51,10 +51,9 @@ public class YutService extends YutDeathRoad {
 				prDTOl = prDTO.get(r);
 			}
 			clearScreen(5);
-			System.out
-					.println("\u001B[36m ■■■■■■■■■■■■■■■■■■■■■■■■■ YUT RACE GAME !! ■■■■■■■■■■■■■■■■■■■■■■■■\u001B[0m");
+			startLine(goalNum);
 			clearScreen(6);
-			StartYut1();
+			StartYut1(goalNum);
 			clearSpace(40);
 			YboardRows(prDTOl);
 			clearSpace(30);
@@ -62,9 +61,28 @@ public class YutService extends YutDeathRoad {
 		}
 	}
 
-	public void StartYut1() {
+	public void StartYut1(int gameGoal) {
 
-		pRepository.StartYut1();
+		pRepository.StartYut1(gameGoal);
+	}
+
+	public void startLine(int gameGoal) {
+		for (int i = 0; i < gameGoal + 8; i++)
+			System.out.print("\u001B[36m■\u001B[0m");// 파란 라인
+		System.out.print("\u001B[36m  YUT RACE GAME !!  \u001B[0m");
+		for (int i = 0; i < gameGoal + 8; i++)
+			System.out.print("\u001B[36m■\u001B[0m");// 파란 라인
+
+	}
+
+	public void whiteLine(int gameGoal) {
+		for (int i = 0; i < gameGoal + 8; i++)
+			System.out.print("■");
+	}
+
+	public void deathLine(int gameGoal) {
+		for (int i = 0; i < gameGoal + 65; i++)
+			System.out.print("\u001B[31m■\u001B[0m");// 빨간 라인
 	}
 
 	public void playTostring(String play) {

@@ -21,7 +21,7 @@ public class YutDeathRoad {
 	}
 
 	public ProjectYDTO YboardRows(ProjectYDTO proYDTO) {
-		goalNum = 20;
+//		goalNum = 20;
 		String boardO = " o ";
 		String boardA = "\u001B[32m(A)\u001B[0m";
 		String boardB = "\u001B[33m(B)\u001B[0m";
@@ -31,15 +31,17 @@ public class YutDeathRoad {
 		System.out.println("\n");
 		System.out.println("                             * Death Road *");
 		pRepository.placeNum(goalNum);
-		pRepository.deathroad1();// 데스로드 호출
+		System.out.println();
+		pRepository.deathroad1(goalNum);// 데스로드 호출
+		System.out.println();
 		System.out.print(" ");
 		int catchM = 0; // 잡히는 상황 시 메시지 출력
 //	
 		for (int i = 0; i <= goalNum; i = i + 1) {
 			if (poCntA == -1 && i == 0) {// 처음에 빽도가 나온 상황
-				poCntA = 19;
+				poCntA = goalNum-1;
 			} else if (poCntB == -1 && i == 0) {
-				poCntB = 19;
+				poCntB = goalNum-1;
 			}
 			if (i == poCntA && i == poCntB) { // 따라잡은 상황
 				if (proYDTO.getPlayer().equals("A")) {
@@ -70,7 +72,9 @@ public class YutDeathRoad {
 				System.out.print(boardO);
 			}
 		}
-		pRepository.deathroad1();// 데스로드 호출
+		System.out.println();
+		pRepository.deathroad1(goalNum);// 데스로드 호출
+		System.out.println();
 		if (catchM == 1) {
 			clearSpace(20);
 			System.out.println("   앗 " + proYDTO.getPlayer() + " 님 잡았습니다. 한번더");

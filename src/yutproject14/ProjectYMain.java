@@ -5,25 +5,22 @@ import java.util.Scanner;
 //
 public class ProjectYMain {
 	public static void main(String[] args) {
-//		YutService service = new YutService();
-		YutGame yutGame = new YutGame();
-		Scanner sc = new Scanner(System.in);
-//		Util util = new Util();
 		//
-		int gameGoal = 20; // 최종 Goal 수
-		boolean play = false;// 참가자 순서를 바꿔 줄 변수(change turn)
+		YutGame yutGame = new YutGame();
+		//
+		int gameGoal = 30; // 최종 Goal 수
 		int gamecntA = 0;// A말의 점수를 저장 할 변수
 		int gamecntB = 0;// B말의 점수를 저장 할 변수
+		boolean play = false;// 참가자 순서를 바꿔 줄 변수(change turn)
 		//
 		yutGame.startGame(gameGoal);
 
 		while (true) {// palyer A 와 player B 번갈아 가며 윷을 던집니다.
-			System.out.println();// player의 점수를 출력 합니다.
+			System.out.println();
 			//
-			if (yutGame.callResultPrint(gamecntA, gamecntB) != 0) {
+			if (yutGame.callResultPrint(gamecntA, gamecntB) != 0) {// player의 점수를 출력 후 종료
 				break;
 			}
-
 			// 게임을 시작하기 위해 버튼 안내 출력
 			int menu = yutGame.startThrow(play);
 

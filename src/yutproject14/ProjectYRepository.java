@@ -44,8 +44,8 @@ public class ProjectYRepository {
 			System.out.print(" ");
 	}
 
-	public String randomspace() {// 윷가락의 위치를 변경하여 콘솔에 조금의 재미를 부여
-		int randoms = rd.nextInt(10);
+	public String randomspace(int goalNum) {// 윷가락의 위치를 변경하여 콘솔에 조금의 재미를 부여
+		int randoms = rd.nextInt(goalNum -(goalNum/2));
 		String randomSpace = "";
 		for (int i = 0; i < randoms; i++) {
 			randomSpace = " " + randomSpace + " ";
@@ -53,29 +53,29 @@ public class ProjectYRepository {
 		return randomSpace;
 	}
 
-	public void StartYut1() {
+	public void StartYut1(int gameGoal) {
 		for (int i = 0; i < 4; i++) {
-			clearSpace(26);
+			clearSpace(gameGoal+6);
 			System.out.println(" _______________");
-			clearSpace(26);
+			clearSpace(gameGoal+6);
 			System.out.println("|___X___X___X___|");
 		}
 	}
 
-	public void Yut1() {
-		String randomyut = randomspace();
+	public void Yut1(int goalNum) {
+		String randomyut = randomspace(goalNum);
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |___X___X___X___|");
 	}
 
-	public void Yut2() {
-		String randomyut = randomspace();
+	public void Yut2(int goalNum) {
+		String randomyut = randomspace(goalNum);
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |_______________|");
 	}
 
-	public void Yut3() {
-		String randomyut = randomspace();
+	public void Yut3(int goalNum) {
+		String randomyut = randomspace(goalNum);
 		System.out.println(randomyut + "                 _______________");
 		System.out.println(randomyut + "                |_B_____________|");
 	}
@@ -98,10 +98,10 @@ public class ProjectYRepository {
 		return nowMal;
 	}
 
-	public void deathroad1() {
+	public void deathroad1(int gameGoal) {
 	
-		System.out.println(
-				"\n\u001B[31m" + " ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" + "\u001B[0m");
+		for (int i = 0; i < gameGoal+65; i++)
+			System.out.print("\u001B[31m■\u001B[0m");//빨간 라인
 	}
 
 	public void placeNum(int gameGoal) {
