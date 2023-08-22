@@ -100,7 +100,7 @@ public class ProjectYRepository {
 
 	public void deathroad1(int gameGoal) {
 	
-		for (int i = 0; i < gameGoal+65; i++)
+		for (int i = 0; i < gameGoal+45; i++)
 			System.out.print("\u001B[31m■\u001B[0m");//빨간 라인
 	}
 

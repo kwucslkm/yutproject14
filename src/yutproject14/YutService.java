@@ -67,21 +67,21 @@ public class YutService extends YutDeathRoad {
 	}
 
 	public void startLine(int gameGoal) {
-		for (int i = 0; i < gameGoal + 8; i++)
+		for (int i = 0; i < gameGoal +3; i++) // goal +8
 			System.out.print("\u001B[36m■\u001B[0m");// 파란 라인
 		System.out.print("\u001B[36m  YUT RACE GAME !!  \u001B[0m");
-		for (int i = 0; i < gameGoal + 8; i++)
+		for (int i = 0; i < gameGoal +3 ; i++)
 			System.out.print("\u001B[36m■\u001B[0m");// 파란 라인
 
 	}
 
 	public void whiteLine(int gameGoal) {
-		for (int i = 0; i < gameGoal + 8; i++)
+		for (int i = 0; i < gameGoal +3; i++) // +8
 			System.out.print("■");
 	}
 
 	public void deathLine(int gameGoal) {
-		for (int i = 0; i < gameGoal + 65; i++)
+		for (int i = 0; i < gameGoal +45; i++) //+65
 			System.out.print("\u001B[31m■\u001B[0m");// 빨간 라인
 	}
 

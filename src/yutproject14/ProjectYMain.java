@@ -8,7 +8,7 @@ public class ProjectYMain {
 		//
 		YutGame yutGame = new YutGame();
 		//
-		int gameGoal = 30; // 최종 Goal 수
+		int gameGoal = 20; // 최종 Goal 수
 		int gamecntA = 0;// A말의 점수를 저장 할 변수
 		int gamecntB = 0;// B말의 점수를 저장 할 변수
 		boolean play = false;// 참가자 순서를 바꿔 줄 변수(change turn)

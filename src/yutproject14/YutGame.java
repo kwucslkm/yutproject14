@@ -14,7 +14,7 @@ public class YutGame extends YutService {
 		StartYut1(gameGoal); // 시작 윷가락모양 표현 메소드 호출
 		clearScreen(5);
 		System.out.println("  '4개의 엿가락'을 던져 20칸 '죽음의 도로'를 달려 GOAL에 먼저 도달하면 '승리' 합니다.");
-		System.out.println("     도:1칸, 개:2칸, 걸:3칸, 윷:4칸(한번더), 모:5칸(한번더),앞사람잡으면(한번더)");
+		System.out.println("  도:1칸, 빽도:뒤로1칸, 개:2칸, 걸:3칸, 윷:4칸(한번더), 모:5칸(한번더),앞사람잡으면(한번더)");
 		System.out.println("            게임은 총 3판을 진행해서 두 번을 먼저 이기면 승리입니다.  ");
 		System.out.println("         먼저 시작하실 분을 정하시고 참가자 A가 되신분은 '1'을 눌러 시작하세요\n");
 		placeNum(gameGoal);
